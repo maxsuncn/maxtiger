@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title}｜科技小虎哥`} description={post.data.description} type="article" publishedTime={post.data.date} modifiedTime={post.data.lastmod}>
+  <main class="article-wrap">
+    <article class="article">
+      <p class="eyebrow">{post.data.topics[0]} · {post.data.date.toLocaleDateString('zh-CN').replaceAll('/', '.')}</p>
+      <h1>{post.data.title}</h1>
+      <p class="article-summary">{post.data.summary}</p>
+      <div class="article-meta"><span>作者：{post.data.author}</span><span>更新：{(post.data.lastmod ?? post.data.date).toLocaleDateString('zh-CN').replaceAll('/', '.')}</span></div>
+      <div class="article-content"><Content /></div>
+      <div class="article-end"><span>内容持续更新中。</span><a href="/posts/">返回文章列表 ↗</a></div>
+    </article>
+  </main>
+</Layout>

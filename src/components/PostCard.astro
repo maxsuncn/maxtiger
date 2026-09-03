@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  date: Date;
+  topic?: string;
+  href: string;
+}
+
+const { title, summary, date, topic = '记录', href } = Astro.props;
+---
+
+<article class="post-card">
+  <p class="post-kicker">{topic} <span>·</span> {date.toLocaleDateString('zh-CN').replaceAll('/', '.')}</p>
+  <h2><a href={href}>{title}</a></h2>
+  <p>{summary}</p>
+  <a class="read-link" href={href}>继续阅读 <span>↗</span></a>
+</article>

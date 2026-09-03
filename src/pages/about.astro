@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site';
+---
+
+<Layout title="关于｜科技小虎哥" description="科技小虎哥的个人介绍、内容方向和合作方式。">
+  <main class="article-wrap about-page">
+    <article class="article">
+      <p class="eyebrow">ABOUT THE AUTHOR</p>
+      <h1>把复杂的东西，讲到可以行动。</h1>
+      <div class="article-content">
+        <p>我是科技小虎哥，长期关注人工智能、数字工具、知识产品，以及技术如何进入真实工作。</p>
+        <h2>主要关注</h2>
+        <p>AI 工具与工作流、技术趋势与商业影响、知识管理与学习方法，以及面向组织的数字化实践。</p>
+        <h2>内容原则</h2>
+        <p>尽量区分事实、厂商说法、个人体验和仍待验证的判断；涉及价格、规则和产品能力时，以当前官方信息为准。</p>
+        <h2>合作联系</h2>
+        <p>如果你希望交流内容、研究或业务合作，可以发送邮件至 <a href={`mailto:${site.email}`}>{site.email}</a>。</p>
+      </div>
+    </article>
+  </main>
+</Layout>
