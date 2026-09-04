@@ -31,7 +31,7 @@ const posts = (await getCollection('posts')).sort((a, b) => b.data.date.valueOf(
     <section class="section-block">
       <div class="section-head"><p class="eyebrow">LATEST DISPATCHES</p><a class="text-link" href="/posts/">全部文章 ↗</a></div>
       <div class="post-grid">
-        {posts.slice(0, 3).map((post) => <PostCard title={post.data.title} summary={post.data.summary} date={post.data.date} topic={post.data.topics[0]} href={`/posts/${post.id}/`} />)}
+        {posts.slice(0, 3).map((post) => <PostCard title={post.data.title} summary={post.data.summary} date={post.data.date} topic={post.data.topics[0]} readingTime={post.data.readingTime} href={`/posts/${post.id}/`} />)}
       </div>
     </section>
 

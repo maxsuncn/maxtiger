@@ -4,14 +4,15 @@ interface Props {
   summary: string;
   date: Date;
   topic?: string;
+  readingTime?: string;
   href: string;
 }
 
-const { title, summary, date, topic = '记录', href } = Astro.props;
+const { title, summary, date, topic = '记录', readingTime, href } = Astro.props;
 ---
 
 <article class="post-card">
-  <p class="post-kicker">{topic} <span>·</span> {date.toLocaleDateString('zh-CN').replaceAll('/', '.')}</p>
+  <p class="post-kicker">{topic} <span>·</span> {date.toLocaleDateString('zh-CN').replaceAll('/', '.')} {readingTime && <><span>·</span> {readingTime}</>}</p>
   <h2><a href={href}>{title}</a></h2>
   <p>{summary}</p>
   <a class="read-link" href={href}>继续阅读 <span>↗</span></a>

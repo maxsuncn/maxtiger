@@ -9,6 +9,7 @@ const posts = defineCollection({
     lastmod: z.coerce.date().optional(),
     description: z.string(),
     summary: z.string(),
+    readingTime: z.string().optional(),
     topics: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     author: z.string().default('科技小虎哥'),
